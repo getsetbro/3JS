@@ -1,11 +1,13 @@
 {
   "scripts": {
-    "p_rotate": "parcel ./rotate/index.html"
+    "p_rotate": "parcel ./rotate/index.html",
+    "p_multimesh": "parcel ./multimesh/index.html"
   },
   "devDependencies": {
     "parcel-bundler": "^1.12.4"
   },
   "dependencies": {
+    "gsap": "^3.2.6",
     "three": "^0.115.0"
   }
 }

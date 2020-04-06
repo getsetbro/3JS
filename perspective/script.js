@@ -1,4 +1,5 @@
-import * as THREE from 'three';
+import * as THREE from '../web_modules/three.js';
+// import {TimelineMax, Expo} from '../web_modules/gsap.js';
 
   // Set the scene size.
   const WIDTH = window.innerWidth;

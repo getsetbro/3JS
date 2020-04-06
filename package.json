@@ -7,6 +7,7 @@
     "p_multimesh": "parcel ./multimesh/index.html"
   },
   "devDependencies": {
+    "eslint": "^6.8.0",
     "parcel-bundler": "^1.12.4"
   },
   "dependencies": {

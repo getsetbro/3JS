@@ -1,0 +1,6 @@
+{
+  "imports": {
+    "gsap": "./gsap.js",
+    "three": "./three.js"
+  }
+}

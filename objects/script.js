@@ -6,7 +6,6 @@ const WIDTH = window.innerWidth;
 const HEIGHT = window.innerHeight;
 
 // Get the DOM element to attach to
-const container = document.querySelector("#container");
 
 // Create a WebGL renderer, camera
 // and a scene
@@ -30,7 +29,7 @@ renderer.setSize(WIDTH / 1.5, HEIGHT / 1.5);
 
 // Attach the renderer-supplied
 // DOM element.
-container.appendChild(renderer.domElement);
+document.body.appendChild(renderer.domElement);
 
 // create a point light
 const pointLight = new THREE.PointLight(0xffffff);

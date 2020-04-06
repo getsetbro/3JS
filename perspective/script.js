@@ -11,10 +11,6 @@ import * as THREE from '../web_modules/three.js';
   const NEAR = 0.1;
   const FAR = 10000;
 
-  // Get the DOM element to attach to
-  const container =
-      document.querySelector('#container');
-
   // Create a WebGL renderer, camera
   // and a scene
   const renderer = new THREE.WebGLRenderer();
@@ -36,7 +32,7 @@ import * as THREE from '../web_modules/three.js';
 
   // Attach the renderer-supplied
   // DOM element.
-  container.appendChild(renderer.domElement);
+  document.body.appendChild(renderer.domElement);
 
   // create a point light
   // const pointLight = new THREE.PointLight(0xFFFFFF);

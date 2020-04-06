@@ -24,12 +24,12 @@ while (i--) {
   mesh.position.z = (Math.random() - 0.5) * 10;
   scene.add(mesh);
 }
-// lots of kinds of lights
-let light = new THREE.PointLight(0xFFFFFF, 1, 1000);
+//lots of kinds of lights
+let light = new THREE.PointLight("yellow", 1, 1000);
 light.position.set(0, 0, 0);
 scene.add(light);
 
-let light2 = new THREE.PointLight(0xFFFFFF, 2, 1000);
+let light2 = new THREE.PointLight("blue", 2, 1000);
 light2.position.set(0, 0, 25);
 scene.add(light2);
 

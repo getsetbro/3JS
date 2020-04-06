@@ -1,5 +1,7 @@
 {
   "scripts": {
+    "p_light": "parcel ./light/index.html",
+    "p_lights": "parcel ./lights/index.html",
     "p_rotate": "parcel ./rotate/index.html",
     "p_lighting": "parcel ./lighting/index.html",
     "p_multimesh": "parcel ./multimesh/index.html"

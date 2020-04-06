@@ -5,7 +5,7 @@ let wInnerWidth = window.innerWidth;
 let wInnerHeight = window.innerHeight;
 // PerspectiveCamera ost closely mimics human eye
 let camera = new THREE.PerspectiveCamera(50, wInnerWidth / wInnerHeight, 0.1, 1000);
-camera.position.z = 11;
+camera.position.z = 15;
 // RENDERERS: WEBGL, CSS2D, CSS3D, SVG
 let renderer = new THREE.WebGLRenderer({ antialias: true });
 renderer.setClearColor("#ddd");
@@ -25,13 +25,36 @@ while (i--) {
   scene.add(mesh);
 }
 //lots of kinds of lights
-let light = new THREE.PointLight("yellow", 1, 1000);
-light.position.set(0, 0, 0);
-scene.add(light);
+// let light = new THREE.PointLight("yellow", 1, 1000);
+// light.position.set(0, 0, 0);
+// scene.add(light);
 
-let light2 = new THREE.PointLight("blue", 2, 1000);
-light2.position.set(0, 0, 25);
-scene.add(light2);
+// let light2 = new THREE.PointLight("blue", 2, 1000);
+// light2.position.set(0, 0, 25);
+// scene.add(light2);
+let geometryL = new THREE.BoxGeometry(0.17, 0.17, 0.17);
+let materialL = new THREE.MeshLambertMaterial({ color: 0xFFFFFF });
+
+let light3 = new THREE.PointLight("red", 1, 100);
+light3.position.set( 1,1,8 );
+scene.add(light3);
+
+let meshL3 = new THREE.Mesh(geometryL, materialL);
+meshL3.position.x = 1;
+meshL3.position.y = 1;
+meshL3.position.z = 8;
+scene.add(meshL3);
+
+let light4 = new THREE.PointLight(0xEEEEEE, 1, 100);
+light4.position.set( -1,-1,18 );
+scene.add(light4);
+
+
+let meshL = new THREE.Mesh(geometryL, materialL);
+meshL.position.x = -1;
+meshL.position.y = -1;
+meshL.position.z = 11;
+scene.add(meshL);
 
 document.body.appendChild(renderer.domElement);
 

@@ -22,14 +22,13 @@ let material = new THREE.MeshLambertMaterial({ color: 0xF7F7F7 });
 // combine these 2 into a mesh
 //let mesh = new THREE.Mesh(geometry, material);
 //scene.add(mesh);
-var meshX = -10;
-for (var i = 0; i < 15; i++) {
+var i = 22;
+while (i--) {
   let mesh = new THREE.Mesh(geometry, material);
   mesh.position.x = (Math.random() - 0.5) * 10;
   mesh.position.y = (Math.random() - 0.5) * 10;
   mesh.position.z = (Math.random() - 0.5) * 10;
   scene.add(mesh);
-  meshX += 1;
 }
 // lots of kinds of lights
 let light = new THREE.PointLight(0xFFFFFF, 1, 1000);
@@ -41,11 +40,6 @@ light2.position.set(0, 0, 25);
 scene.add(light2);
 
 document.body.appendChild(renderer.domElement);
-window.addEventListener('resize', () => {
-  renderer.setSize(window.innerWidth, window.innerHeight);
-  camera.aspect = window.innerWidth / window.innerHeight;
-  camera.updateProjectionMatrix();
-});
 
 function repo(e) {
   e.preventDefault();
@@ -73,4 +67,10 @@ let render = function () {
   renderer.render(scene, camera);
 };
 
-render();
+requestAnimationFrame(render);
+
+window.addEventListener('resize', () => {
+  renderer.setSize(window.innerWidth, window.innerHeight);
+  camera.aspect = window.innerWidth / window.innerHeight;
+  camera.updateProjectionMatrix();
+});

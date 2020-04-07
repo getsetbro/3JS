@@ -30,9 +30,6 @@ import * as THREE from '../web_modules/three.js';
   // Start the renderer.
   renderer.setSize(WIDTH, HEIGHT);
 
-  // Attach the renderer-supplied
-  // DOM element.
-  document.body.appendChild(renderer.domElement);
 
   // create a point light
   // const pointLight = new THREE.PointLight(0xFFFFFF);
@@ -80,6 +77,10 @@ import * as THREE from '../web_modules/three.js';
   // Finally, add the sphere to the scene.
   scene.add(sphere);
 
+  // Attach the renderer-supplied
+  // DOM element.
+  document.body.appendChild(renderer.domElement);
+
   function update () {
     // Draw!
     renderer.render(scene, camera);
@@ -90,3 +91,9 @@ import * as THREE from '../web_modules/three.js';
 
   // Schedule the first frame.
   requestAnimationFrame(update);
+
+  window.addEventListener('resize', () => {
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+  });

@@ -1,7 +1,20 @@
 {
+  "name": "threejsdevelopment",
+  "version": "1.0.0",
+  "description": "threejs development",
   "scripts": {
-    "serve": "serve"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/getsetbro/3JS.git"
+  },
+  "author": "getsetbro",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/getsetbro/3JS/issues"
+  },
+  "homepage": "https://github.com/getsetbro/3JS#readme",
   "devDependencies": {
     "eslint": "^6.8.0"
   },

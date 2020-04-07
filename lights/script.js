@@ -17,7 +17,7 @@ let geometry = new THREE.BoxGeometry(1, 1, 1);
 let material = new THREE.MeshLambertMaterial({ color: 0xF7F7F7 });
 //let mesh = new THREE.Mesh(geometry, material);
 //scene.add(mesh);
-var i = 10;
+var i = 22;
 while (i--) {
   let mesh = new THREE.Mesh(geometry, material);
   mesh.position.x = (Math.random() - 0.5) * 10;
@@ -33,37 +33,31 @@ while (i--) {
 // let light2 = new THREE.PointLight("blue", 2, 1000);
 // light2.position.set(0, 0, 25);
 // scene.add(light2);
-let geometryL = new THREE.BoxGeometry(0.17, 0.17, 0.17);
-let materialL = new THREE.MeshLambertMaterial({ color: 0xFFFFFF });
+
+// let geometryL = new THREE.BoxGeometry(0.17, 0.17, 0.17);
+// let materialL = new THREE.MeshLambertMaterial({ color: 0xFFFFFF });
 
 let light3 = new THREE.PointLight("red", 1, 100);
 light3.position.set( 1,1,8 );
 scene.add(light3);
 
-let meshL3 = new THREE.Mesh(geometryL, materialL);
-meshL3.position.x = 1;
-meshL3.position.y = 1;
-meshL3.position.z = 8;
-scene.add(meshL3);
+// let meshL3 = new THREE.Mesh(geometryL, materialL);
+// meshL3.position.x = 1;
+// meshL3.position.y = 1;
+// meshL3.position.z = 8;
+// scene.add(meshL3);
 
 let light4 = new THREE.PointLight(0xEEEEEE, 1, 100);
 light4.position.set( -1,-1,18 );
 scene.add(light4);
 
-
-let meshL = new THREE.Mesh(geometryL, materialL);
-meshL.position.x = -1;
-meshL.position.y = -1;
-meshL.position.z = 11;
-scene.add(meshL);
+// let meshL = new THREE.Mesh(geometryL, materialL);
+// meshL.position.x = -1;
+// meshL.position.y = -1;
+// meshL.position.z = 11;
+// scene.add(meshL);
 
 document.body.appendChild(renderer.domElement);
-
-window.addEventListener('resize', () => {
-  renderer.setSize(window.innerWidth, window.innerHeight);
-  camera.aspect = window.innerWidth / window.innerHeight;
-  camera.updateProjectionMatrix();
-});
 
 function repo(e) {
   e.preventDefault();
@@ -88,4 +82,10 @@ let render = function () {
   renderer.render(scene, camera);
 };
 
-render();
+requestAnimationFrame(render);
+
+window.addEventListener('resize', () => {
+  renderer.setSize(window.innerWidth, window.innerHeight);
+  camera.aspect = window.innerWidth / window.innerHeight;
+  camera.updateProjectionMatrix();
+});

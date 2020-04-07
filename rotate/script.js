@@ -1,9 +1,8 @@
 import * as THREE from '../web_modules/three.js';
 // import {TimelineMax, Expo} from '../web_modules/gsap.js';
-
+var camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 0.1, 1000);
 var scene = new THREE.Scene();
 scene.background = new THREE.Color( "yellow" );
-var camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 0.1, 1000);
 var renderer = new THREE.WebGLRenderer();
 renderer.setSize(window.innerWidth, window.innerHeight);
 
@@ -22,4 +21,10 @@ var animate = function () {
   cube.rotation.y += 0.01;
   renderer.render(scene, camera);
 };
-animate();
+requestAnimationFrame(animate);
+
+window.addEventListener('resize', () => {
+  renderer.setSize(window.innerWidth, window.innerHeight);
+  camera.aspect = window.innerWidth / window.innerHeight;
+  camera.updateProjectionMatrix();
+});

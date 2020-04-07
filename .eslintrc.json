@@ -1,15 +1,28 @@
 {
-    "extends": ["eslint:recommended", "plugin:prettier/recommended"],
-    "env": {
-        "es6": true,
-        "browser": true
-    },
-    "globals": {
-        "Atomics": "readonly",
-        "SharedArrayBuffer": "readonly"
-    },
-    "parserOptions": {
-        "ecmaVersion": 2018,
-        "sourceType": "module"
+  "root": true,
+  "parserOptions": {
+    "ecmaVersion": 11,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
     }
+  },
+  "env": {
+    "es6": true,
+    "browser": true
+  },
+  "extends": ["eslint:recommended"],
+  "rules": {
+    // override default options
+    "indent": ["error", 2],
+    "semi": ["error", "always"],
+    "quotes": ["error", "double"],
+    "comma-dangle": ["error", "never"],
+    "object-curly-spacing": ["error", "always"],
+    "array-bracket-spacing": ["error", "always"],
+    "space-in-parens": ["error", "always"],
+    "linebreak-style": 0,
+    // disable
+    "no-console": "off"
   }
+}

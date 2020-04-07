@@ -1,99 +1,85 @@
-import * as THREE from '../web_modules/three.js';
+import * as THREE from "../web_modules/three.js";
 // import {TimelineMax, Expo} from '../web_modules/gsap.js';
 
-  // Set the scene size.
-  const WIDTH = window.innerWidth;
-  const HEIGHT = window.innerHeight;
+// Set the scene size.
+const WIDTH = window.innerWidth;
+const HEIGHT = window.innerHeight;
 
-  // Set some camera attributes.
-  const VIEW_ANGLE = 45;
-  const ASPECT = WIDTH / HEIGHT;
-  const NEAR = 0.1;
-  const FAR = 10000;
+// Set some camera attributes.
+const VIEW_ANGLE = 45;
+const ASPECT = WIDTH / HEIGHT;
+const NEAR = 0.1;
+const FAR = 10000;
 
-  // Create a WebGL renderer, camera
-  // and a scene
-  const renderer = new THREE.WebGLRenderer();
-  const camera =
-      new THREE.PerspectiveCamera(
-          VIEW_ANGLE,
-          ASPECT,
-          NEAR,
-          FAR
-      );
+// Create a WebGL renderer, camera
+// and a scene
+const renderer = new THREE.WebGLRenderer();
+const camera = new THREE.PerspectiveCamera( VIEW_ANGLE, ASPECT, NEAR, FAR );
 
-  const scene = new THREE.Scene();
+const scene = new THREE.Scene();
 
-  // Add the camera to the scene.
-  scene.add(camera);
+// Add the camera to the scene.
+scene.add( camera );
 
-  // Start the renderer.
-  renderer.setSize(WIDTH, HEIGHT);
+// Start the renderer.
+renderer.setSize( WIDTH, HEIGHT );
 
+// create a point light
+// const pointLight = new THREE.PointLight(0xFFFFFF);
+// // set its position
+// pointLight.position.x = 10;
+// pointLight.position.y = 50;
+// pointLight.position.z = 130;
+// // add to the scene
+// scene.add(pointLight);
 
-  // create a point light
-  // const pointLight = new THREE.PointLight(0xFFFFFF);
-  // // set its position
-  // pointLight.position.x = 10;
-  // pointLight.position.y = 50;
-  // pointLight.position.z = 130;
-  // // add to the scene
-  // scene.add(pointLight);
+let light = new THREE.PointLight( 0xffffff, 1, 1000 );
+light.position.set( 0, 0, 0 ); // x y z
+scene.add( light );
 
-  let light = new THREE.PointLight(0xFFFFFF, 1, 1000);
-  light.position.set(0, 0, 0); // x y z
-  scene.add(light);
+// create the sphere's material
+const sphereMaterial = new THREE.MeshLambertMaterial( {
+  color: 0xcc0000
+} );
 
+// Set up the sphere vars
+const RADIUS = 50;
+const SEGMENTS = 16;
+const RINGS = 16;
 
+// Create a new mesh with
+// sphere geometry - we will cover
+// the sphereMaterial next!
+const sphere = new THREE.Mesh(
+  new THREE.SphereGeometry( RADIUS, SEGMENTS, RINGS ),
 
-  // create the sphere's material
-  const sphereMaterial =
-    new THREE.MeshLambertMaterial(
-      {
-        color: 0xCC0000
-      });
+  sphereMaterial
+);
 
-  // Set up the sphere vars
-  const RADIUS = 50;
-  const SEGMENTS = 16;
-  const RINGS = 16;
+// Move the Sphere back in Z so we
+// can see it.
+sphere.position.z = -300;
 
-  // Create a new mesh with
-  // sphere geometry - we will cover
-  // the sphereMaterial next!
-  const sphere = new THREE.Mesh(
+// Finally, add the sphere to the scene.
+scene.add( sphere );
 
-    new THREE.SphereGeometry(
-      RADIUS,
-      SEGMENTS,
-      RINGS),
+// Attach the renderer-supplied
+// DOM element.
+document.body.appendChild( renderer.domElement );
 
-    sphereMaterial);
+function update() {
+  // Draw!
+  renderer.render( scene, camera );
 
-  // Move the Sphere back in Z so we
-  // can see it.
-  sphere.position.z = -300;
+  // Schedule the next frame.
+  requestAnimationFrame( update );
+}
 
-  // Finally, add the sphere to the scene.
-  scene.add(sphere);
+// Schedule the first frame.
+requestAnimationFrame( update );
 
-  // Attach the renderer-supplied
-  // DOM element.
-  document.body.appendChild(renderer.domElement);
-
-  function update () {
-    // Draw!
-    renderer.render(scene, camera);
-
-    // Schedule the next frame.
-    requestAnimationFrame(update);
-  }
-
-  // Schedule the first frame.
-  requestAnimationFrame(update);
-
-  window.addEventListener('resize', () => {
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    camera.aspect = window.innerWidth / window.innerHeight;
-    camera.updateProjectionMatrix();
-  });
+window.addEventListener( "resize", () => {
+  renderer.setSize( window.innerWidth, window.innerHeight );
+  camera.aspect = window.innerWidth / window.innerHeight;
+  camera.updateProjectionMatrix();
+} );

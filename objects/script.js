@@ -1,4 +1,4 @@
-import * as THREE from "../web_modules/three.js";
+import * as THREE from '../web_modules/three.js';
 // import {TimelineMax, Expo} from '../web_modules/gsap.js';
 
 // Set the scene size.
@@ -8,7 +8,7 @@ const wInnerHeight = window.innerHeight;
 // Create a WebGL renderer, camera
 // and a scene
 // const camera = new THREE.PerspectiveCamera(VIEW_ANGLE, ASPECT, NEAR, FAR);
-let camera = new THREE.PerspectiveCamera( 99, wInnerWidth / wInnerHeight, 1, 99 );
+let camera = new THREE.PerspectiveCamera(99, wInnerWidth / wInnerHeight, 1, 99);
 camera.position.z = 5;
 
 const scene = new THREE.Scene();
@@ -18,7 +18,7 @@ scene.add(camera);
 const renderer = new THREE.WebGLRenderer({ antialias: true });
 // Start the renderer.
 renderer.setPixelRatio(window.devicePixelRatio);
-renderer.setClearColor("#222");
+renderer.setClearColor('#222');
 renderer.setSize(wInnerWidth, wInnerHeight);
 
 // create a point light

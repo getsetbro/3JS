@@ -23,7 +23,7 @@ function init() {
   plane.receiveShadow = true;
   // ASCII file
   var loader = new STLLoader();
-  loader.load( "/stl/guesstallmate/body.stl", function ( geometry ) {
+  loader.load( "/stl/body.stl", function ( geometry ) {
     var material = new THREE.MeshPhongMaterial( { color: 0xff5533, specular: 0x111111, shininess: 200 } );
     var mesh = new THREE.Mesh( geometry, material );
     mesh.position.set( 0, -0.5, 0 );
@@ -35,7 +35,7 @@ function init() {
   } );
   // Binary files
   var material = new THREE.MeshPhongMaterial( { color: 0xAAAAAA, specular: 0x111111, shininess: 200 } );
-  loader.load( "/stl/guesstallmate/body.stl", function ( geometry ) {
+  loader.load( "/stl/body.stl", function ( geometry ) {
     var mesh = new THREE.Mesh( geometry, material );
     mesh.position.set( 0.25,0.25,0.7 );
     // mesh.rotation.set( - Math.PI / 2, 0, 0 );
@@ -44,7 +44,7 @@ function init() {
     // mesh.receiveShadow = true;
     scene.add( mesh );
   } );
-  // loader.load( "/stl/guesstallmate/body.stl", function ( geometry ) {
+  // loader.load( "/stl/body.stl", function ( geometry ) {
   //   var mesh = new THREE.Mesh( geometry, material );
   //   mesh.position.set( 0.136, - 0.37, - 0.6 );
   //   mesh.rotation.set( - Math.PI / 2, 0.3, 0 );
@@ -54,7 +54,7 @@ function init() {
   //   scene.add( mesh );
   // } );
   // Colored binary STL
-  // loader.load( "/stl/guesstallmate/body.stl", function ( geometry ) {
+  // loader.load( "/stl/body.stl", function ( geometry ) {
   //   var meshMaterial = material;
   //   if ( geometry.hasColors ) {
   //     meshMaterial = new THREE.MeshPhongMaterial( { opacity: geometry.alpha, vertexColors: true } );

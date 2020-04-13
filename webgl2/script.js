@@ -7,17 +7,17 @@ if ( WEBGL.isWebGL2Available() === false ) {
 var camera, scene, renderer;
 var controls;
 function init() {
-  camera = new THREE.PerspectiveCamera( 99, window.innerWidth / window.innerHeight, 0.1, 100 );
+  camera = new THREE.PerspectiveCamera( 99, window.innerWidth / window.innerHeight, 0.01, 100 );
   camera.position.z = 9;
 
   scene = new THREE.Scene();
-  scene.background = new THREE.Color( 0, 0, 0.5 );
+  scene.background = new THREE.Color( 0, 0, 0.3 );
   // scene.fog = new THREE.Fog(0x000000, 0.1, 3);
 
-  var light = new THREE.PointLight( 0xffffff );
-  scene.add( light );
+  // var light = new THREE.PointLight( 0xffffff );
+  // scene.add( light );
 
-  var geometry = new THREE.SphereBufferGeometry( 0.05, 32, 16 );
+  var geometry = new THREE.SphereBufferGeometry( 0.3, 16, 16 );
   var material = new THREE.MeshNormalMaterial();
 
   var i = 55;
@@ -26,8 +26,8 @@ function init() {
     mesh.position.x = Math.random() * 10 - 5;
     mesh.position.y = Math.random() * 10 - 5;
     mesh.position.z = Math.random() * 10 - 5;
-    mesh.rotation.y = Math.random() * 2 * Math.PI;
-    mesh.scale.setScalar( Math.random() * 4 + 1 );
+    // mesh.rotation.y = Math.random() * 2 * Math.PI;
+    // mesh.scale.setScalar( Math.random() * 4 + 1 );
     scene.add( mesh );
   }
 

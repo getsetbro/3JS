@@ -1,5 +1,7 @@
 
-import * as THREE from "../build/three.module.js";
+// import * as THREE from "../build/three.module.js";
+import * as THREE from "../web_modules/three.js";
+
 // import Stats from "./jsm/libs/stats.module.js";
 // import { FirstPersonControls } from "../jsm/controls/FirstPersonControls.js";
 import { GLTFLoader } from "../jsm/loaders/GLTFLoader.js";

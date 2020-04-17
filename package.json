@@ -7,7 +7,11 @@
   },
   "author": "getsetbro",
   "license": "ISC",
+  "repository": {
+    "url": ""
+  },
   "dependencies": {
+    "ammo.js": "0.0.10",
     "gsap": "^3.2.6",
     "three": "^0.115.0"
   },

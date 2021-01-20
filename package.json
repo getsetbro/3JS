@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "ammo.js": "0.0.10",
-    "gsap": "^3.2.6",
+    "gsap": "^3.6.0",
     "three": "^0.115.0"
   },
   "devDependencies": {
